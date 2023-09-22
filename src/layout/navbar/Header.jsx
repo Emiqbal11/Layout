@@ -23,9 +23,6 @@ const Header = ({ showSidebar, toggleSidebar, handleShow }) => {
         fluid
         className="d-flex align-items-center main-div py-2 h-100"
       >
-        <div className="border main-logo">
-          <img src={logo} alt="logo" />
-        </div>
         <div className="d-flex gap-4 align-items-center flex-grow-1">
           <div className="border border-1">
             <FaHamburger onClick={toggleSidebar} size={30} />

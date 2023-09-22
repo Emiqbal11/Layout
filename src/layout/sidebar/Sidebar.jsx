@@ -6,6 +6,9 @@ import * as AiIcons from "react-icons/ai";
 import { SidebarData } from "./SidebarData";
 import SubMenu from "./SubMenu";
 import { IconContext } from "react-icons/lib";
+import logo from "../../assets/nalystlogo.png";
+import { RiCloseFill } from "react-icons/ri";
+import { Offcanvas } from "react-bootstrap";
 
 const Nav = styled.div`
   background: #ffffff;
@@ -43,14 +46,31 @@ const SidebarWrap = styled.div`
   }
 `;
 
-const Sidebar = () => {
+const Sidebar = ({ setShowSidebar, showSidebar, toggleSidebar }) => {
   return (
     <>
-      <SidebarWrap className="my-list">
-        {SidebarData.map((item, index) => {
-          return <SubMenu item={item} key={index} />;
-        })}
-      </SidebarWrap>
+      <Offcanvas
+        show={showSidebar}
+        onHide={toggleSidebar}
+        responsive="md"
+        // style={{ width: "60%" }}
+      >
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>
+            <FaIcons.FaHubspot />
+          </Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body className="bg-none">
+          <SidebarWrap>
+            <div className="border main-logo">
+              <img src={logo} alt="logo" />
+            </div>
+            {SidebarData.map((item, index) => {
+              return <SubMenu item={item} key={index} />;
+            })}
+          </SidebarWrap>
+        </Offcanvas.Body>
+      </Offcanvas>
     </>
   );
 };

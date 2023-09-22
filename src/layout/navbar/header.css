@@ -17,11 +17,11 @@
   height: 80px;
   object-fit: contain;
 }
+.main-logo svg {
+  display: none;
+}
 
 @media only screen and (min-width: 300px) and (max-width: 480px) {
-  .main-logo img {
-    display: none;
-  }
   .main-div {
     gap: 0.5rem;
   }
@@ -40,12 +40,10 @@
     background-color: red;
     display: none;
   }
-  .main-logo img {
-    display: none;
+
+  .main-logo svg {
+    display: block;
   }
 }
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
-  .main-logo img {
-    display: block;
-  }
 }
