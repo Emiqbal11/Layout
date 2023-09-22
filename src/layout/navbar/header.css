@@ -1,0 +1,51 @@
+.main-div {
+  gap: 1.5rem;
+}
+.div-user {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.div-nav {
+  gap: 2rem;
+}
+.div-lang {
+  gap: 1rem;
+}
+.main-logo img {
+  width: 265px;
+  height: 80px;
+  object-fit: contain;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 480px) {
+  .main-logo img {
+    display: none;
+  }
+  .main-div {
+    gap: 0.5rem;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .main-div {
+    gap: 0.5rem;
+  }
+  .div-nav {
+    gap: 0.8rem;
+  }
+  .div-lang {
+    gap: 0.3rem;
+  }
+  .div-user {
+    background-color: red;
+    display: none;
+  }
+  .main-logo img {
+    display: none;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .main-logo img {
+    display: block;
+  }
+}
