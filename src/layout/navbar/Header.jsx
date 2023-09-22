@@ -13,7 +13,7 @@ import { IoIosAdd } from "react-icons/io";
 import { BsFillBellFill } from "react-icons/bs";
 import { TfiWorld } from "react-icons/tfi";
 import Sidebar from "../sidebar/Sidebar";
-import { FaHamburger } from "react-icons/fa";
+import { TiThMenu } from "react-icons/ti";
 import "./header.css";
 
 const Header = ({ showSidebar, toggleSidebar, handleShow }) => {
@@ -24,11 +24,11 @@ const Header = ({ showSidebar, toggleSidebar, handleShow }) => {
         className="d-flex align-items-center main-div-header py-2 h-100"
       >
         <div className="d-flex d-md-none">
-          <FaHamburger onClick={toggleSidebar} size={30} />
+          <TiThMenu onClick={toggleSidebar} size={30} />
         </div>
         <div className="d-none d-md-flex align-items-center flex-grow-1 main-div-nav">
           <div className="d-none d-md-flex">
-            <FaHamburger onClick={toggleSidebar} size={30} />
+            <TiThMenu onClick={toggleSidebar} size={30} />
           </div>
           <div className="d-none d-md-flex div-nav">
             <Nav.Link href="#action1">News Feed</Nav.Link>
@@ -45,7 +45,7 @@ const Header = ({ showSidebar, toggleSidebar, handleShow }) => {
               <h5>English</h5>
             </div>
             <div>
-              <BsFillBellFill />
+              <BsFillBellFill style={{ marginTop: "6px" }} />
             </div>
           </div>
           <div>

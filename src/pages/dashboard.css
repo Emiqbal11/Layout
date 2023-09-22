@@ -17,7 +17,7 @@
   /* Offset by the height of the top header */
   width: 280px;
   /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
-  background-color: yellow;
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
   left: -100%;
@@ -34,6 +34,8 @@
 }
 .fixed-sidebar.active {
   left: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .content {
   margin-left: 280px; /* Same width as the sidebar */
@@ -56,6 +58,11 @@
 @media only screen and (min-width: 300px) and (max-width: 480px) {
   .fixed-top-header {
     margin-left: 0px;
+    background-color: yellow;
+  }
+  .fixed-top-header.active {
+    margin-left: 0px;
+    background-color: red;
   }
   .fixed-sidebar {
     display: none;
@@ -91,7 +98,10 @@
     display: none;
   }
   .fixed-top-header {
-    margin-left: 280px;
+    margin-left: 0px;
+  }
+  .fixed-top-header.active {
+    margin-left: 0px;
   }
   .content {
     margin-left: 0px;
