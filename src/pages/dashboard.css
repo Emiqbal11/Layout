@@ -17,7 +17,7 @@
   /* Offset by the height of the top header */
   width: 280px;
   /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
-  background-color: #ffffff;
+  background-color: yellow;
   display: flex;
   justify-content: center;
   left: -100%;
@@ -53,6 +53,31 @@
 .icon-close-class {
   display: block;
 }
+@media only screen and (min-width: 300px) and (max-width: 480px) {
+  .fixed-top-header {
+    margin-left: 0px;
+  }
+  .fixed-sidebar {
+    display: none;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  .offcanvas-md {
+    width: 250px !important;
+  }
+  .icon-close-class {
+    display: none;
+  }
+
+  .content {
+    margin-left: 0px;
+  }
+  .content.active {
+    margin-left: 0px;
+    transition: all 1s;
+    -webkit-transition: all 1s;
+  }
+}
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   .fixed-sidebar {
     /* margin-top: 4rem; */
@@ -66,7 +91,7 @@
     display: none;
   }
   .fixed-top-header {
-    margin-left: 0px;
+    margin-left: 280px;
   }
   .content {
     margin-left: 0px;

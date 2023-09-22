@@ -23,11 +23,14 @@ const Header = ({ showSidebar, toggleSidebar, handleShow }) => {
         fluid
         className="d-flex align-items-center main-div-header py-2 h-100"
       >
-        <div className="d-flex align-items-center flex-grow-1 main-div-nav">
-          <div className="">
+        <div className="d-flex d-md-none">
+          <FaHamburger onClick={toggleSidebar} size={30} />
+        </div>
+        <div className="d-none d-md-flex align-items-center flex-grow-1 main-div-nav">
+          <div className="d-none d-md-flex">
             <FaHamburger onClick={toggleSidebar} size={30} />
           </div>
-          <div className="d-flex div-nav">
+          <div className="d-none d-md-flex div-nav">
             <Nav.Link href="#action1">News Feed</Nav.Link>
             <Nav.Link href="#action2">Opinion</Nav.Link>
             <Nav.Link href="#action2">Analysis</Nav.Link>
@@ -41,9 +44,9 @@ const Header = ({ showSidebar, toggleSidebar, handleShow }) => {
               <TfiWorld style={{ marginBottom: "7px" }} />
               <h5>English</h5>
             </div>
-            <span>
+            <div>
               <BsFillBellFill />
-            </span>
+            </div>
           </div>
           <div>
             <img

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Nav } from "react-bootstrap";
 import { RiArrowDownSFill, RiArrowUpSFill } from "react-icons/ri";
 import {
   IoIosAdd,
@@ -84,7 +84,7 @@ const SubMenu = ({ item }) => {
         </div>
         <div>
           {item.title === "My Folder" &&
-            (isOpen ? <RiArrowDownSFill /> : <RiArrowUpSFill />)}
+            (isOpen ? <RiArrowUpSFill /> : <RiArrowDownSFill />)}
           {item.subNav && subnav
             ? item.iconOpened
             : item.subNav
@@ -92,6 +92,7 @@ const SubMenu = ({ item }) => {
             : null}
         </div>
       </SidebarLink>
+
       {subnav &&
         item.subNav.map((item, index) => {
           return (
@@ -104,7 +105,7 @@ const SubMenu = ({ item }) => {
                 >
                   <div style={{ marginRight: "px" }}>Specific Date</div>
                   <div className="me-1">
-                    {showInput ? item.iconClosed : item.iconOpened}
+                    {showInput ? item.iconOpened : item.iconClosed}
                   </div>
                 </div>
               ) : (
@@ -113,6 +114,7 @@ const SubMenu = ({ item }) => {
             </DropdownLink>
           );
         })}
+
       {isOpen && (
         <div className="d-flex flex-column gap-2">
           <div className="" style={{ paddingLeft: "3.2rem" }}>
