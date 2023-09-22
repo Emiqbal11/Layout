@@ -56,9 +56,7 @@ const Sidebar = ({ setShowSidebar, showSidebar, toggleSidebar }) => {
         // style={{ width: "60%" }}
       >
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>
-            <FaIcons.FaHubspot />
-          </Offcanvas.Title>
+          <Offcanvas.Title>{/* <FaIcons.FaHubspot /> */}</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body className="bg-none">
           <SidebarWrap>

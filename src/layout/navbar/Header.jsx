@@ -21,10 +21,10 @@ const Header = ({ showSidebar, toggleSidebar, handleShow }) => {
     <>
       <Container
         fluid
-        className="d-flex align-items-center main-div py-2 h-100"
+        className="d-flex align-items-center main-div-header py-2 h-100"
       >
-        <div className="d-flex gap-4 align-items-center flex-grow-1">
-          <div className="border border-1">
+        <div className="d-flex align-items-center flex-grow-1 main-div-nav">
+          <div className="">
             <FaHamburger onClick={toggleSidebar} size={30} />
           </div>
           <div className="d-flex div-nav">
@@ -35,14 +35,14 @@ const Header = ({ showSidebar, toggleSidebar, handleShow }) => {
           </div>
         </div>
 
-        <div className="me-3 d-flex align-items-center gap-5">
-          <div className="div-user">
+        <div className="me-2 d-flex align-items-center main-div-user">
+          <div className="main-div-lang">
             <div className="d-flex align-items-center div-lang mt-1">
-              <TfiWorld style={{ marginBottom: "7px" }} size={25} />
+              <TfiWorld style={{ marginBottom: "7px" }} />
               <h5>English</h5>
             </div>
             <span>
-              <BsFillBellFill size={25} />
+              <BsFillBellFill />
             </span>
           </div>
           <div>

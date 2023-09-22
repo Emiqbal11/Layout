@@ -16,14 +16,14 @@
   top: 0px;
   /* Offset by the height of the top header */
   width: 280px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
   background-color: #ffffff;
   display: flex;
   justify-content: center;
   left: -100%;
   transition: all 1s;
   -webkit-transition: all 1s;
-  /* z-index: 10; */
+  z-index: 10;
 }
 .fixed-top-header.active {
   margin-left: 0px;
