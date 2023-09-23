@@ -1,14 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Button, Form, Nav } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { RiArrowDownSFill, RiArrowUpSFill } from "react-icons/ri";
-import {
-  IoIosAdd,
-  IoIosAddCircle,
-  IoMdCafe,
-  IoMdColorWand,
-} from "react-icons/io";
 
 const SidebarLink = styled(Link)`
   display: flex;
@@ -46,8 +40,8 @@ const DropdownLink = styled(Link)`
     cursor: pointer;
   }
 `;
+
 const InputField = styled.input`
-  /* Define styles for your input field here */
   width: 90%;
   padding: 5px;
   border: 1px solid #ccc;
@@ -56,29 +50,47 @@ const InputField = styled.input`
 
 const SubMenu = ({ item }) => {
   const [subnav, setSubnav] = useState(false);
-  const [showInput, setShowInput] = useState(false); // Step 1
-  const [isOpen, setIsOpen] = useState(false); // Step 1
-
-  console.log(item);
+  const [showInput, setShowInput] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleSubMenu = () => {
     setSubnav(!subnav);
-    setShowInput(false); // Close the input field when submenu is closed
+    setShowInput(false);
   };
 
   const toggleInput = () => {
-    setShowInput(!showInput); // Step 3
+    setShowInput(!showInput);
   };
+
   const toggleOpen = () => {
     if (item.title === "My Folder") {
       setIsOpen(!isOpen);
     }
   };
 
+  const renderDateInputs = () => (
+    <div className="d-flex flex-column gap-2" style={{ paddingLeft: "3.2rem" }}>
+      <div>
+        <Form.Label className="mb-0">From</Form.Label>
+        <InputField type="date" placeholder="Enter something" />
+      </div>
+      <div className="d-flex flex-column">
+        <Form.Label className="mb-0">To</Form.Label>
+        <InputField type="date" placeholder="Enter something" />
+        <Button className="w-50 mx-auto mt-3" variant="secondary">
+          Go
+        </Button>
+      </div>
+    </div>
+  );
+
   return (
     <>
-      <SidebarLink to={item.path} onClick={item.subNav ? toggleSubMenu : null}>
-        <div onClick={toggleOpen}>
+      <SidebarLink
+        to={item.path}
+        onClick={item.subNav ? toggleSubMenu : toggleOpen}
+      >
+        <div>
           {item.icon}
           <SidebarLabel>{item.title}</SidebarLabel>
         </div>
@@ -94,73 +106,27 @@ const SubMenu = ({ item }) => {
       </SidebarLink>
 
       {subnav &&
-        item.subNav.map((item, index) => {
-          return (
-            <DropdownLink to={item.path} key={index}>
-              {item.icon}
-              {item.title === "Specific Date" ? (
-                <div
-                  onClick={toggleInput}
-                  className="d-flex justify-content-between w-100 p-3"
-                >
-                  <div style={{ marginRight: "px" }}>Specific Date</div>
-                  <div className="me-1">
-                    {showInput ? item.iconOpened : item.iconClosed}
-                  </div>
+        item.subNav.map((subItem, index) => (
+          <DropdownLink to={subItem.path} key={index}>
+            {subItem.icon}
+            {subItem.title === "Specific Date" ? (
+              <div
+                onClick={toggleInput}
+                className="d-flex justify-content-between w-100 p-3"
+              >
+                <div style={{ marginRight: "px" }}>Specific Date</div>
+                <div className="me-1">
+                  {showInput ? subItem.iconOpened : subItem.iconClosed}
                 </div>
-              ) : (
-                <SidebarLabel>{item.title}</SidebarLabel>
-              )}
-            </DropdownLink>
-          );
-        })}
+              </div>
+            ) : (
+              <SidebarLabel>{subItem.title}</SidebarLabel>
+            )}
+          </DropdownLink>
+        ))}
 
-      {isOpen && (
-        <div className="d-flex flex-column gap-2">
-          <div className="" style={{ paddingLeft: "3.2rem" }}>
-            <Form.Label className="mb-0">From</Form.Label>
-            <InputField
-              type="date"
-              placeholder="Enter something"
-              // You can handle input field logic here
-            />
-          </div>
-          <div className="d-flex flex-column" style={{ paddingLeft: "3.2rem" }}>
-            <Form.Label className="mb-0">To</Form.Label>
-            <InputField
-              type="date"
-              placeholder="Enter something"
-              // You can handle input field logic here
-            />
-            <Button className="w-50 mx-auto mt-3 " variant="secondary">
-              Go
-            </Button>
-          </div>
-        </div>
-      )}
-      {showInput && (
-        <div className="d-flex flex-column gap-2">
-          <div className="" style={{ paddingLeft: "3.2rem" }}>
-            <Form.Label className="mb-0">From</Form.Label>
-            <InputField
-              type="date"
-              placeholder="Enter something"
-              // You can handle input field logic here
-            />
-          </div>
-          <div className="d-flex flex-column" style={{ paddingLeft: "3.2rem" }}>
-            <Form.Label className="mb-0">To</Form.Label>
-            <InputField
-              type="date"
-              placeholder="Enter something"
-              // You can handle input field logic here
-            />
-            <Button className="w-50 mx-auto mt-3 " variant="secondary">
-              Go
-            </Button>
-          </div>
-        </div>
-      )}
+      {isOpen && renderDateInputs()}
+      {showInput && renderDateInputs()}
     </>
   );
 };

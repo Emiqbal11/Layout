@@ -1,10 +1,15 @@
 import React from "react";
-
+import { Col, Container, Row } from "react-bootstrap";
+import NewsCard from "../components/newsCard/NewsCard";
 const Overview = () => {
   return (
-    <div className="home">
-      <h1>Overview</h1>
-    </div>
+    <Container>
+      <Row>
+        <Col>
+          <NewsCard />
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

@@ -71,13 +71,7 @@ const Sidebar = ({ setShowSidebar, showSidebar, toggleSidebar }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <Offcanvas
-        show={showSidebar}
-        onHide={toggleSidebar}
-        responsive="md"
-
-        // style={{ width: "60%" }}
-      >
+      <Offcanvas show={showSidebar} onHide={toggleSidebar} responsive="md">
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>{/* <FaIcons.FaHubspot /> */}</Offcanvas.Title>
         </Offcanvas.Header>

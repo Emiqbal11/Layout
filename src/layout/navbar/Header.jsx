@@ -1,18 +1,8 @@
-import React, { useState } from "react";
-import {
-  Button,
-  Container,
-  Nav,
-  NavDropdown,
-  Navbar,
-  Offcanvas,
-  Form,
-} from "react-bootstrap";
+import React from "react";
+import { Container, Nav, Offcanvas } from "react-bootstrap";
 import logo from "../../assets/nalystlogo.png";
-import { IoIosAdd } from "react-icons/io";
-import { BsFillBellFill } from "react-icons/bs";
 import { TfiWorld } from "react-icons/tfi";
-import Sidebar from "../sidebar/Sidebar";
+import { BsFillBellFill } from "react-icons/bs";
 import { TiThMenu } from "react-icons/ti";
 import "./header.css";
 
@@ -23,7 +13,7 @@ const Header = ({ showSidebar, toggleSidebar, handleShow }) => {
         fluid
         className="d-flex align-items-center main-div-header py-2 h-100"
       >
-        <div className="d-flex d-md-none">
+        <div className="d-flex d-md-none ms-1">
           <TiThMenu onClick={toggleSidebar} size={30} />
         </div>
         <div className="d-none d-md-flex align-items-center flex-grow-1 main-div-nav">
@@ -57,91 +47,11 @@ const Header = ({ showSidebar, toggleSidebar, handleShow }) => {
                 borderRadius: "50%",
                 border: "2px solid gray",
               }}
+              alt="User Logo"
             />
           </div>
         </div>
       </Container>
-      {/* <Navbar className="mb-3"> */}
-      {/* <Container fluid>
-          <Navbar.Brand href="#" className="">
-            <img
-              src={logo}
-              alt="logo"
-              style={{ width: "160px" }}
-              className="main-logo"
-            />
-          </Navbar.Brand>
-          <div>
-            <FaHamburger onClick={handleShow} />
-          </div>
-          <div className="d-flex gap-5">
-            <Nav.Link href="#action1">News Feed</Nav.Link>
-            <Nav.Link href="#action2">Opinion</Nav.Link>
-            <Nav.Link href="#action2">Analysis</Nav.Link>
-            <Nav.Link href="#action2">Statistics</Nav.Link>
-          </div> */}
-      {/* <Navbar.Toggle
-            onClick={toggleSidebar}
-            aria-controls={`offcanvasNavbar-expand-sm`}
-          />
-          <Navbar.Offcanvas
-            id={`offcanvasNavbar-expand-sm`}
-            aria-labelledby={`offcanvasNavbarLabel-expand-sm`}
-            placement="end"
-          >
-            <Offcanvas.Header closeButton>
-              <Offcanvas.Title id={`offcanvasNavbarLabel-expand-sm}`}>
-                Offcanvas
-              </Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-              <Nav className="justify-content-start fs-6 fw-normal gap-3 flex-grow-1 mt-3 pe-3">
-                <Nav.Link href="#action1">News Feed</Nav.Link>
-                <Nav.Link href="#action2">Opinion</Nav.Link>
-                <Nav.Link href="#action2">Analysis</Nav.Link>
-                <Nav.Link href="#action2">Statistics</Nav.Link> */}
-      {/* {showSidebar && <Sidebar />} */}
-
-      {/* <NavDropdown
-                  title="Dropdown"
-                  id={`offcanvasNavbarDropdown-expand-sm`}
-                >
-                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">
-                    Another action
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action5">
-                    Something else here
-                  </NavDropdown.Item>
-                </NavDropdown> */}
-      {/* </Nav> */}
-      {/* <div className="me-3 d-flex align-items-center gap-5">
-            <div className="d-flex justify-content-between gap-5">
-              <div className="d-flex align-items-center gap-3 mt-1">
-                <TfiWorld style={{ marginBottom: "7px" }} size={25} />
-                <h5>English</h5>
-              </div>
-              <span>
-                <BsFillBellFill size={25} />
-              </span>
-            </div>
-            <div>
-              <img
-                src={logo}
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "50%",
-                  border: "2px solid gray",
-                }}
-              />
-            </div>
-          </div> */}
-      {/* </Offcanvas.Body>
-          </Navbar.Offcanvas> */}
-      {/* </Container> */}
-      {/* </Navbar> */}
     </>
   );
 };
