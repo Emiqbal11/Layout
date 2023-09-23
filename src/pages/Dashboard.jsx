@@ -6,7 +6,7 @@ import "./dashboard.css";
 import { Offcanvas } from "react-bootstrap";
 import { FaHubspot } from "react-icons/fa";
 const Dashboard = () => {
-  const [showSidebar, setShowSidebar] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(true);
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
   };
