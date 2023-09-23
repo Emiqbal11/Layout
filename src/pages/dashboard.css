@@ -58,11 +58,11 @@
 @media only screen and (min-width: 300px) and (max-width: 480px) {
   .fixed-top-header {
     margin-left: 0px;
-    background-color: yellow;
+    /* background-color: yellow; */
   }
   .fixed-top-header.active {
     margin-left: 0px;
-    background-color: red;
+    /* background-color: red; */
   }
   .fixed-sidebar {
     display: none;
