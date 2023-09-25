@@ -70,7 +70,11 @@ const Header = ({ showSidebar, toggleSidebar, handleShow }) => {
               <span className="">userNAME</span>
               <span className="">USER Member</span>
             </div>
-            <div className="d-flex align-items-center gap-2">
+
+            <div
+              className="d-flex align-items-center gap-2"
+              onClick={toggleDropdown}
+            >
               <img
                 src={logo}
                 style={{
