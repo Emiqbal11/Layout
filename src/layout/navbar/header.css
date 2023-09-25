@@ -34,7 +34,7 @@
   position: absolute;
   width: 180px;
   max-height: 100%;
-  top: 12%;
+  top: 80px;
   right: 1.3rem;
   display: flex;
   align-items: center;
@@ -45,8 +45,9 @@
   background-color: #ffffff;
 }
 .drop-menu svg {
-  width: 2rem;
+  width: 1.5rem;
 }
+
 .drop-menu-button {
   width: 90%;
   border: none;
@@ -55,6 +56,10 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+.drop-menu-button:hover {
+  background-color: #45c9f4;
+  color: #ffffff;
 }
 @media only screen and (min-width: 300px) and (max-width: 480px) {
   .main-div-header {
@@ -73,6 +78,7 @@
   }
   .main-div-user h5 {
     font-size: 1rem;
+    color: var(--primary-color) !important;
   }
   .main-logo svg {
     display: block;
@@ -101,6 +107,7 @@
   } */
   .main-div-user h5 {
     font-size: 1.2rem;
+
     /* display: none; */
   }
   .main-logo svg {

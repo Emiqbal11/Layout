@@ -6,7 +6,7 @@ import { RiArrowDownSFill, RiArrowUpSFill } from "react-icons/ri";
 
 const SidebarLink = styled(Link)`
   display: flex;
-  color: #000;
+  color: var(--secondary-color);
   justify-content: space-between;
   align-items: center;
   padding: 20px;
@@ -16,6 +16,7 @@ const SidebarLink = styled(Link)`
   font-size: 18px;
   &:hover {
     background: #45c9f4;
+    color: #2f4f4f;
     border-left: 2px solid #000;
     cursor: pointer;
   }
@@ -32,7 +33,8 @@ const DropdownLink = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #000;
+  color: var(--secondary-color);
+
   font-size: 18px;
 
   &:hover {

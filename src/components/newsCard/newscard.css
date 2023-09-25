@@ -1,0 +1,6 @@
+.for-h4 {
+  color: var(--primary-color);
+}
+.for-h4:hover {
+  color: #0056b3;
+}

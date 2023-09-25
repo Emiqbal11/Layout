@@ -2,6 +2,7 @@ import React from "react";
 import { BsFillBookmarkFill } from "react-icons/bs";
 import { FaCalendar, FaEdit, FaEye, FaFolder, FaSave } from "react-icons/fa";
 import { IoOpen } from "react-icons/io5";
+import "./newscard.css";
 
 const NewsCard = ({ Children }) => {
   return (
@@ -13,11 +14,21 @@ const NewsCard = ({ Children }) => {
           </span>
           <span className="fs-6">a year ago</span>
         </p>
-        <p className="">
-          <BsFillBookmarkFill size={25} style={{ color: "#45C9F4" }} />
+        <p className="d-flex gap-2 align-items-center">
+          <span className="fs-6">(Sports)</span>
+          <span>
+            <BsFillBookmarkFill size={25} style={{ color: "#45C9F4" }} />
+          </span>
         </p>
       </div>
-
+      <h4 className="for-h4 py-1">
+        European Gasoline Barge Refining Margins Stable
+      </h4>
+      <p className="py-1 text-secondary">
+        EUROPE: Benchmark northwest European gasoline barge refining margins
+        were broadly stable on Thursday around $16 a barrel as stockpiles in
+        north western Europe rose and transatlantic exports were slowi
+      </p>
       <div>{Children}</div>
       <div className="d-flex justify-content-between child-div">
         <div className="d-flex align-items-center gap-3">

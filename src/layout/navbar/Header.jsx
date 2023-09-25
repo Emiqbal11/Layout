@@ -55,11 +55,17 @@ const Header = ({ showSidebar, toggleSidebar, handleShow }) => {
         >
           <div className="main-div-lang">
             <div className="d-flex align-items-center div-lang mt-1">
-              <TfiWorld style={{ marginBottom: "7px" }} />
-              <h5>English</h5>
+              <TfiWorld
+                size={25}
+                style={{ marginBottom: "7px", color: "var(--primary-color" }}
+              />
+              <h5 style={{ color: "var(--primary-color)" }}>English</h5>
             </div>
             <div>
-              <BsFillBellFill style={{ marginTop: "6px" }} />
+              <BsFillBellFill
+                style={{ marginTop: "1px", color: "var(--primary-color" }}
+                size={25}
+              />
             </div>
           </div>
           <div
