@@ -56,48 +56,39 @@ const Header = ({ showSidebar, toggleSidebar, handleShow }) => {
           <div className="main-div-lang">
             <div className="d-flex align-items-center div-lang mt-1">
               <TfiWorld
-                size={25}
+                size={20}
                 style={{ marginBottom: "7px", color: "var(--primary-color" }}
               />
-              <h5 style={{ color: "var(--primary-color)" }}>English</h5>
+              <h6 style={{ color: "var(--primary-color)" }}>English</h6>
             </div>
             <div>
               <BsFillBellFill
                 style={{ marginTop: "1px", color: "var(--primary-color" }}
-                size={25}
+                size={20}
               />
             </div>
           </div>
+
           <div
+            className="d-flex align-items-center gap-2"
             onClick={toggleDropdown}
-            className="d-flex align-items-center gap-2 border px-2 py-1"
           >
-            <div className="d-flex flex-column">
-              <span className="">userNAME</span>
-              <span className="">USER Member</span>
-            </div>
+            <img
+              src={logo}
+              style={{
+                width: "40px",
+                height: "40px",
+                borderRadius: "50%",
+                border: "2px solid gray",
+              }}
+              alt="User Logo"
+            />
 
-            <div
-              className="d-flex align-items-center gap-2"
-              onClick={toggleDropdown}
-            >
-              <img
-                src={logo}
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "50%",
-                  border: "2px solid gray",
-                }}
-                alt="User Logo"
-              />
-
-              {dropdownOpen ? (
-                <IoMdArrowDropup size={25} onClick={toggleDropdown} />
-              ) : (
-                <IoMdArrowDropdown size={25} />
-              )}
-            </div>
+            {dropdownOpen ? (
+              <IoMdArrowDropup size={25} onClick={toggleDropdown} />
+            ) : (
+              <IoMdArrowDropdown size={25} />
+            )}
           </div>
         </div>
       </Container>

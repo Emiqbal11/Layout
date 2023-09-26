@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Button, Form } from "react-bootstrap";
 import { RiArrowDownSFill, RiArrowUpSFill } from "react-icons/ri";
 
-const SidebarLink = styled(Link)`
+const SidebarLink = styled(NavLink)`
   display: flex;
   color: var(--secondary-color);
   justify-content: space-between;
@@ -15,10 +15,15 @@ const SidebarLink = styled(Link)`
   text-decoration: none;
   font-size: 18px;
   &:hover {
-    background: #45c9f4;
-    color: #2f4f4f;
+    color: #45c9f4;
+    // color: #2f4f4f;
     border-left: 2px solid #000;
     cursor: pointer;
+  }
+  &.selected-link {
+    // Add this CSS class for the selected link
+    color: #45c9f4;
+    background: #45c9f4;
   }
 `;
 
@@ -26,7 +31,7 @@ const SidebarLabel = styled.span`
   margin-left: 16px;
 `;
 
-const DropdownLink = styled(Link)`
+const DropdownLink = styled(NavLink)`
   background: #ffffff;
   height: 50px;
   padding-left: 3.2rem;
@@ -34,11 +39,9 @@ const DropdownLink = styled(Link)`
   align-items: center;
   text-decoration: none;
   color: var(--secondary-color);
-
   font-size: 18px;
-
   &:hover {
-    background: #45c9f4;
+    color: #45c9f4;
     cursor: pointer;
   }
 `;
@@ -51,6 +54,7 @@ const InputField = styled.input`
 `;
 
 const SubMenu = ({ item }) => {
+  console.log(item);
   const [subnav, setSubnav] = useState(false);
   const [showInput, setShowInput] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -88,9 +92,55 @@ const SubMenu = ({ item }) => {
 
   return (
     <>
-      <SidebarLink
+      {item.path ? (
+        <SidebarLink
+          to={item.path}
+          onClick={item.subNav ? toggleSubMenu : toggleOpen}
+          style={({ isActive, isPending }) => {
+            return {
+              color: isActive ? "#45c9f4" : "",
+            };
+          }}
+        >
+          <div>
+            {item.icon}
+            <SidebarLabel>{item.title}</SidebarLabel>
+          </div>
+          <div>
+            {item.title === "My Folder" &&
+              (isOpen ? <RiArrowUpSFill /> : <RiArrowDownSFill />)}
+            {item.subNav && subnav
+              ? item.iconOpened
+              : item.subNav
+              ? item.iconClosed
+              : null}
+          </div>
+        </SidebarLink>
+      ) : (
+        <SidebarLink onClick={item.subNav ? toggleSubMenu : toggleOpen}>
+          <div>
+            {item.icon}
+            <SidebarLabel>{item.title}</SidebarLabel>
+          </div>
+          <div>
+            {item.title === "My Folder" &&
+              (isOpen ? <RiArrowUpSFill /> : <RiArrowDownSFill />)}
+            {item.subNav && subnav
+              ? item.iconOpened
+              : item.subNav
+              ? item.iconClosed
+              : null}
+          </div>
+        </SidebarLink>
+      )}
+      {/* <SidebarLink
         to={item.path}
         onClick={item.subNav ? toggleSubMenu : toggleOpen}
+        style={({ isActive, isPending }) => {
+          return {
+            color: isActive ? "#45c9f4" : "",
+          };
+        }}
       >
         <div>
           {item.icon}
@@ -105,11 +155,19 @@ const SubMenu = ({ item }) => {
             ? item.iconClosed
             : null}
         </div>
-      </SidebarLink>
+      </SidebarLink> */}
 
       {subnav &&
         item.subNav.map((subItem, index) => (
-          <DropdownLink to={subItem.path} key={index}>
+          <DropdownLink
+            to={subItem.path}
+            key={index}
+            style={({ isActive, isPending }) => {
+              return {
+                color: isActive ? "#45c9f4" : "",
+              };
+            }}
+          >
             {subItem.icon}
             {subItem.title === "Specific Date" ? (
               <div

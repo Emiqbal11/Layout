@@ -45,7 +45,7 @@ export const SidebarData = [
   },
   {
     title: "My Folder",
-    path: "/",
+    // path: "/folder",
     icon: <AiIcons.AiFillHome style={{ marginBottom: "5px" }} />,
   },
 ];

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { SidebarData } from "./SidebarData";
@@ -47,7 +47,7 @@ const SidebarWrap = styled.div`
     background-color: white; /* Change to your desired color */
   }
 `;
-const SidebarLink = styled(Link)`
+const SidebarLink = styled(NavLink)`
   display: flex;
   color: #000;
   justify-content: space-between;
@@ -58,7 +58,7 @@ const SidebarLink = styled(Link)`
   text-decoration: none;
   font-size: 18px;
   &:hover {
-    background: #45c9f4;
+    color: #45c9f4;
     border-left: 2px solid #000;
     cursor: pointer;
   }
@@ -86,7 +86,15 @@ const Sidebar = ({ setShowSidebar, showSidebar, toggleSidebar }) => {
             })}
 
             <div className="d-flex flex-column d-md-none div-nav">
-              <SidebarLink href="#action1" onClick={() => setIsOpen(!isOpen)}>
+              <SidebarLink
+                href="#action1"
+                onClick={() => setIsOpen(!isOpen)}
+                style={({ isActive, isPending }) => {
+                  return {
+                    color: isActive ? "#45c9f4" : "",
+                  };
+                }}
+              >
                 <div>
                   <FaIcons.FaHome />
                   <SidebarLabel>Category</SidebarLabel>
