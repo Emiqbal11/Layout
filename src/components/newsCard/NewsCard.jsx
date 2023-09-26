@@ -4,7 +4,7 @@ import { FaCalendar, FaEdit, FaEye, FaFolder, FaSave } from "react-icons/fa";
 import { IoOpen } from "react-icons/io5";
 import "./newscard.css";
 
-const NewsCard = ({ Children }) => {
+const NewsCard = ({ Children, openModal }) => {
   return (
     <div className="shadow-md px-3 py-2 rounded border">
       <div className="d-flex justify-content-between">
@@ -16,7 +16,7 @@ const NewsCard = ({ Children }) => {
         </p>
         <p className="d-flex gap-2 align-items-center">
           <span className="fs-6">(Sports)</span>
-          <span>
+          <span onClick={openModal}>
             <BsFillBookmarkFill size={25} style={{ color: "#45C9F4" }} />
           </span>
         </p>
